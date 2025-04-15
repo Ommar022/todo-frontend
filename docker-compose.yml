@@ -1,0 +1,33 @@
+  version: '3.8'
+
+  services:
+    web:
+      build:
+        context: .
+        dockerfile: Dockerfile.windows # use a Windows-based Dockerfile
+      ports:
+        - '8080:8080'
+        - '8081:8081'
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+      depends_on:
+        - db
+      networks:
+        - app-network
+      isolation: process # optional but recommended for Windows containers
+
+  db:
+    image: mcr.microsoft.com/mssql/server/windows/mssql-server-express:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Pass123
+      - MSSQL_PID=Express
+    ports:
+      - '1433:1433'
+    networks:
+      - app-network
+    isolation: process
+
+  networks:
+    app-network:
+      driver: nat # Use 'nat' network driver for Windows containers
