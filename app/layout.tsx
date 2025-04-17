@@ -1,7 +1,7 @@
 import '@mantine/core/styles.css';
 import React from 'react';
-import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
-import ClientWrapper from '@/components/ClientWrapper';
+import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
+// import ClientWrapper from '@/components/ClientWrapper';
 import Cookies from 'js-cookie';
 import NotificationModal from './Todo/NotificationModal';
 
@@ -22,9 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body suppressHydrationWarning={true}>
-        <ClientWrapper>
+      <MantineProvider theme={{ }}>
+        {/* <ClientWrapper> */}
           {children}
-        </ClientWrapper>
+        {/* </ClientWrapper> */}
+        </MantineProvider>
       </body>
     </html>
   );
