@@ -5,8 +5,11 @@ import { TodoList , Todo, User , TodoStatus , Comment, TodoListAssignment, UserW
 // const API_BASE_URL = 'http://localhost:5122/api';
 // const WS_URL = 'ws://localhost:5122/ws'; 
 
-const API_BASE_URL = 'http://localhost:8080/api';
-const WS_URL = 'ws://localhost:8080/ws'; 
+// const API_BASE_URL = 'http://localhost:8080/api';
+// const WS_URL = 'ws://localhost:8080/ws'; 
+
+const API_BASE_URL = 'https://todo-backend-production-f99f.up.railway.app/api';
+const WS_URL = 'https://todo-backend-production-f99f.up.railway.app/ws'; 
 
 const getAuthHeaders = () => {
   const token = Cookies.get('token');
